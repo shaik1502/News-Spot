@@ -3,21 +3,23 @@ import CardTab from "./CardTab";
 import SearchBox from "./searchbox";
 
 function MainPage() {
-  const [articles, setArticles] = useState([]);
-  const [query, setQuery] = useState("mobiles");
-
+  const [articles, setArticles] = useState([]); // State for news articles
+  const [query, setQuery] = useState("mobiles"); // State for search query
 
   const API_KEY = "da17f57c22034e9c9b442ae0b3c6dffb";
-  const url = `https://newsapi.org/v2/everything?q=${query}&apiKey=${API_KEY}`;
 
- 
-  // Function to fetch news based on query
+  // Function to fetch news based on the current query
   async function fetchNews() {
     const url = `https://newsapi.org/v2/everything?q=${query}&apiKey=${API_KEY}`;
     try {
-      const res = await fetch(url);
-      const data = await res.json();
-      setArticles(data.articles || []);
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      setArticles(data.articles || []); // Update articles in state
     } catch (error) {
       console.error("Error fetching news:", error);
     }
@@ -28,15 +30,16 @@ function MainPage() {
     fetchNews();
   }, [query]);
 
+  // Handler for search input
+  const handleSearch = (searchTerm) => {
+    setQuery(searchTerm); // Update query when the user performs a search
+  };
 
-
-     const handleSearch = (searchTerm) => {
-       setQuery(searchTerm); // Update the query when a new search term is provided
-     };
-  
   return (
     <div>
-      <SearchBox onSearch={handleSearch}/>
+      {/* SearchBox for user input */}
+      <SearchBox onSearch={handleSearch} />
+      {/* Display fetched articles */}
       <CardTab articles={articles} />
     </div>
   );
