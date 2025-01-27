@@ -104,5 +104,4 @@ export default function RecipeReviewCard({ article }) {
     </Card>
   );
 }
-
-// https://github.com/shaik1502/News-API
+ 
