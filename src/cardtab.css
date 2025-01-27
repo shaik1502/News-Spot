@@ -1,0 +1,24 @@
+/* CardTab.css */
+
+/* Container for all cards */
+#cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  padding: 20px;
+}
+
+/* Add some padding to the entire page */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-top: 20px;
+  font-size: 2rem;
+}
