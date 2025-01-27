@@ -1,8 +1,8 @@
 {
-  "homepage": "https://shaik1502.github.io/News-API",
+  "homepage": "https://shaik1502.github.io/news-spot/",
   "name": "portfolio",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
