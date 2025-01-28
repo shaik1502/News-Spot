@@ -20,11 +20,7 @@ function CardTab({ articles }) {
       >
         <p>
           Done by: <strong>Sameer Shaik</strong> &nbsp;
-          <a
-            href="https://newsapi.org/v2/everything"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://gnews.io/" target="_blank" rel="noopener noreferrer">
             Using News API
           </a>
         </p>

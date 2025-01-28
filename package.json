@@ -2,7 +2,7 @@
   "homepage": "https://shaik1502.github.io/news-spot",
   "name": "NewsSpot",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
