@@ -14,6 +14,7 @@ import { Favorite, Share } from "@mui/icons-material";
 import { red } from "@mui/material/colors";
 
 export default function RecipeReviewCard({ article }) {
+
   return (
     <Card
       sx={{
@@ -54,7 +55,7 @@ export default function RecipeReviewCard({ article }) {
       <CardMedia
         component="img"
         height="200"
-        image={article.urlToImage || "https://via.placeholder.com/200x200"} // Placeholder image if no image is available
+        image={article.image || "https://source.unsplash.com/random"} // Fallback image in case the article doesn't have an image
         alt={article.title}
         sx={{
           borderRadius: "8px",
