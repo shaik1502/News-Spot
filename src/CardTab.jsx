@@ -21,7 +21,7 @@ function CardTab({ articles }) {
         <p>
           Done by: <strong>Sameer Shaik</strong> &nbsp;
           <a href="https://gnews.io/" target="_blank" rel="noopener noreferrer">
-            Using News API
+            Using GNews API
           </a>
         </p>
       </footer>
