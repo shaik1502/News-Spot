@@ -27,7 +27,6 @@ function MainPage() {
     fetchNews();
   }, [query]);
 
-  console.log(articles);
   const handleSearch = (searchTerm) => {
     setQuery(searchTerm); // Update the query when a new search term is provided
   };
