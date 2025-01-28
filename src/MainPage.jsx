@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CardTab from "./CardTab";
 import SearchBox from "./searchbox";
+import axios from "axios";
 
 function MainPage() {
   const [articles, setArticles] = useState([]);
@@ -15,9 +16,8 @@ function MainPage() {
   async function fetchNews() {
     const url = `https://newsapi.org/v2/everything?q=${query}&apiKey=${API_KEY}`;
     try {
-      const res = await fetch(url);
-      const data = await res.json();
-      setArticles(data.articles || []);
+      const { data } = await axios.get(url);
+      setArticles(data.articles);
     } catch (error) {
       console.error("Error fetching news:", error);
     }
