@@ -11,28 +11,34 @@ import {
   Box,
 } from "@mui/material";
 import { Favorite, Share } from "@mui/icons-material";
-import { red } from "@mui/material/colors";
 
 export default function RecipeReviewCard({ article }) {
+  // State for managing the like count
+  const [likeCount, setLikeCount] = React.useState(0);
+
+  const handleLike = () => {
+    setLikeCount(likeCount + 1); // Increment like count
+  };
 
   return (
     <Card
       sx={{
         maxWidth: 450,
-        height: 500, // Set fixed height
-        margin: "2px",
+        height: 500,
+        margin: "8px",
         boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
         borderRadius: "12px",
         transition: "transform 0.3s",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between", // Ensure proper alignment for content
+        justifyContent: "space-between",
         "&:hover": {
           transform: "scale(1.03)",
           boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.15)",
         },
       }}
     >
+      {/* Article Title and Date */}
       <CardHeader
         title={
           <Typography
@@ -44,28 +50,33 @@ export default function RecipeReviewCard({ article }) {
               textAlign: "center",
               display: "-webkit-box",
               WebkitBoxOrient: "vertical",
-              WebkitLineClamp: 2, // Allows up to 2 lines of text before truncating
+              WebkitLineClamp: 2,
             }}
           >
             {article.title || "No Title Available"}
           </Typography>
         }
-        subheader={"Date :"+new Date(article.publishedAt).toLocaleDateString()}
+        subheader={
+          "Published on: " + new Date(article.publishedAt).toLocaleDateString()
+        }
       />
+
+      {/* Article Image */}
       <CardMedia
         component="img"
         height="200"
-        image={article.image || "https://source.unsplash.com/random"} // Fallback image in case the article doesn't have an image
+        image={article.image || "https://source.unsplash.com/random"}
         alt={article.title}
         sx={{
           borderRadius: "8px",
           margin: "8px",
-          objectFit: "cover", // Ensures image fills the container without distorting
-          width: "100%", // Makes sure the image takes full width of the container
-          height: "200px", // Fixed height for all images
+          objectFit: "cover",
+          width: "100%",
+          height: "200px",
         }}
       />
 
+      {/* Article Description */}
       <CardContent>
         <Typography
           variant="body2"
@@ -80,15 +91,31 @@ export default function RecipeReviewCard({ article }) {
           {article.description || "No description available."}
         </Typography>
       </CardContent>
+
+      {/* Card Actions */}
       <CardActions sx={{ justifyContent: "space-between" }}>
         <Box>
-          <IconButton aria-label="add to favorites">
+          {/* Like Button */}
+          <IconButton
+            aria-label="add to favorites"
+            onClick={handleLike}
+            color={likeCount > 0 ? "error" : "default"}
+          >
             <Favorite />
           </IconButton>
+          <Typography
+            variant="body2"
+            sx={{ display: "inline", marginLeft: "4px" }}
+          >
+            {likeCount}
+          </Typography>
+
+          {/* Share Button */}
           <IconButton aria-label="share">
             <Share />
           </IconButton>
         </Box>
+        {/* Read More Link */}
         <a
           href={article.url}
           target="_blank"
@@ -105,4 +132,3 @@ export default function RecipeReviewCard({ article }) {
     </Card>
   );
 }
- 

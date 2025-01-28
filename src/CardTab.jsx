@@ -14,14 +14,40 @@ function CardTab({ articles }) {
           textAlign: "center",
           padding: "20px",
           fontSize: "14px",
-          backgroundColor: "#f1f1f1",
-          marginTop: "20px",
+          backgroundColor: "#f9f9f9",
+          borderTop: "1px solid #ddd",
+          marginTop: "30px",
         }}
       >
-        <p>
-          Done by: <strong>Sameer Shaik</strong> &nbsp;
-          <a href="https://gnews.io/" target="_blank" rel="noopener noreferrer">
-            Using GNews API
+        <p style={{ margin: "5px 0", fontWeight: "500" }}>
+          Developed by&nbsp;
+          <a
+            href="https://www.linkedin.com/in/sameer-shaik-68317224b/"
+            style={{ textDecoration: "none", color: "#0073b1" }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Sameer Shaik
+          </a>
+        </p>
+        <p style={{ margin: "5px 0", color: "#555" }}>
+          Contact:&nbsp;
+          <a
+            href="mailto:sameer_s@srmap.edu.in"
+            style={{ textDecoration: "none", color: "#555" }}
+          >
+            sameer_s@srmap.edu.in
+          </a>
+        </p>
+        <p style={{ margin: "5px 0", fontSize: "13px", color: "#888" }}>
+          Powered by&nbsp;
+          <a
+            href="https://gnews.io/"
+            style={{ textDecoration: "none", color: "#555" }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GNews API
           </a>
         </p>
       </footer>
